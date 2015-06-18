@@ -1,0 +1,18 @@
+/* Impresiones */
+
+@media print {
+  
+  html, body {
+    font-family: Arial,sans-serif;
+  }
+  .no-print {
+    display: none !important;
+    * {
+      display: none !important;
+    }
+  }
+  .fixed-action-btn, #cargando {
+    display: none !important;
+  }
+  
+}

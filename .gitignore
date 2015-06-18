@@ -1,0 +1,22 @@
+# Eclipse
+.classpath
+.project
+.settings/
+
+# Intellij
+.idea/
+*.iml
+*.iws
+
+# Mac
+.DS_Store
+
+# Maven
+log/
+target/
+
+# Node, Bower and Sass
+bower_components/
+node_modules/
+.sass-cache/
+tmp/
