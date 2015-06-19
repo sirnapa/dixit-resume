@@ -35,7 +35,6 @@ module.exports = function (grunt) {
             target: {
                 files: {
                     'css/equipo.css': [
-                        'bower_components/font-awesome/css/font-awesome.css',
                         'bower_components/materialize/dist/css/materialize.css',
                         'tmp/equipo.css'
                     ]
@@ -47,21 +46,12 @@ module.exports = function (grunt) {
                 files: [
                     {
                         expand: true,
-                        flatten: true,
+                        flatten: false,
                         filter: 'isFile',
-                        cwd: 'bower_components/',
-                        dest: 'fonts/',
-                        src: [
-                            'font-awesome/fonts/**'
-                        ]
-                    },{
-                        expand: true,
-                        flatten: true,
-                        filter: 'isFile',
-                        cwd: 'bower_components/',
+                        cwd: 'bower_components/materialize/dist/font/',
                         dest: 'font/',
                         src: [
-                            'materialize/dist/font/**'
+                            '**'
                         ]
                     }
                 ]
@@ -75,7 +65,8 @@ module.exports = function (grunt) {
                 files: [{
                     'js/librerias.js': [
                         'bower_components/jquery/dist/jquery.js',
-                        'bower_components/materialize/dist/js/materialize.js'
+                        'bower_components/materialize/dist/js/materialize.js',
+                        'bower_components/color-thief/dist/color-thief.min.js'
                     ],
                     'js/equipo.js': [
                         'src/js/cv.js',
@@ -88,11 +79,11 @@ module.exports = function (grunt) {
         },
         watch: {
             sass: {
-              files: ['dev/scss/**/*.scss'],
+              files: ['src/scss/**/*.scss'],
               tasks: ['sass','cssmin']
             }, 
             uglify: {
-              files: 'dev/js/**/*.js',
+              files: 'src/js/**/*.js',
               tasks: ['uglify']
             }
           }

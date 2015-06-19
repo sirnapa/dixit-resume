@@ -25,12 +25,30 @@ function mostrarCV(){
 	  		case 'Avatar':
 	  			var img = $(li).find('img').first();
 				var imgContainer = $('<div>').addClass('avatar').prependTo('#contacto');
-				$(img).removeAttr('class')
-					.removeAttr('width')
-					.removeAttr('height')
+				$('<img>').load(function(){
+						try{
+							var img = $(this)[0];
+							var colorThief = new ColorThief();
+							var color = colorThief.getColor(img);
+							$('header').css('background-color',
+							           'rgb('+
+							           color[0] + ',' +
+							           color[1] + ',' +
+							           color[2] + ')' )
+								.removeClass('indigo-degradado');
+						}catch(e){
+						  $('header').addClass('indigo-degradado');
+						}
+					})
 					.addClass('circle responsive-img no-print')
 					.appendTo(imgContainer)
-					.before('<br>');
+					.attr('src',img.attr('src'))
+					.each(function() {
+						// fail-safe for cached images which sometimes don't trigger "load" events
+						if(this.complete){
+							$(this).load();
+						}
+					}).before('<br>');
 	  			break;
 	  		case 'Email':
 	  			var mail = $(li).html();
@@ -74,7 +92,7 @@ function mostrarCV(){
 	  			$('<br>').appendTo(herramientas);
 
 	  			var ul, nuevaColumna = function(){
-	  				return $('<ul>').addClass('fa-ul')
+	  				return $('<ul>').addClass('lista')
 	  				.appendTo(
 	  					$('<div>').addClass('col m4 s12')
 							.appendTo(herramientas)
@@ -88,7 +106,7 @@ function mostrarCV(){
 	  				if((i%cantidadPorColumna)==0){
 	  					ul = nuevaColumna();
 	  				}
-					$('<i class="fa-li fa fa-check-square"></i>').prependTo(item);
+					$('<i class="mdi-navigation-check"></i>').prependTo(item);
 		  			$(item).appendTo(ul);
 	  			});
 
