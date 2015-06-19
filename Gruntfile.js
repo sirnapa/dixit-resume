@@ -69,6 +69,7 @@ module.exports = function (grunt) {
                         'bower_components/color-thief/dist/color-thief.min.js'
                     ],
                     'js/equipo.js': [
+                        'src/js/acerca-de.js',
                         'src/js/cv.js',
                         'src/js/responsive.js',
                         'src/js/util.js',

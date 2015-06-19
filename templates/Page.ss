@@ -117,12 +117,38 @@
 		</div>
 		<footer class="page-footer yellow darken-1 hide">
           <div class="footer-copyright">
-            <div class="container black-text">
-            	&copy; 2015 Desarrollado por <a class="black-text " href="http://equipo.dixit.com.py/nelson">Nelson Páez</a>
+            <div class="container">
+            	<a class="modal-trigger black-text" href="Javascript:void(0);" onclick="verAcercaDe();">
+            		&copy; $Now.Year Acerca de esta página <i class="mdi-action-open-in-new"></i>
+        		</a>
             	<a class="grey-text text-lighten-4 right dixit-logo" href="http://dixit.com.py"></a>
             </div>
           </div>
         </footer>
+		<div id="acerca-de" class="modal">
+			<div class="modal-content">
+				<h4>Acerca de</h4>
+				<p>
+					Este sitio fue desarrollado por <a href="http://equipo.dixit.com.py/nelson">Nelson Páez</a>.
+		  		</p>
+				<p>
+					Se utiliza la librería 
+					<a href="https://github.com/lokesh/color-thief">
+						Color Thief
+					</a> de 
+					<a href="http://lokeshdhakar.com">
+						Lokesh Dhakar
+					</a>, libre para uso personal y comercial bajo licencia
+					<a rel="license" href="http://creativecommons.org/licenses/by/2.5/">
+						Creative Commons Attribution 2.5  
+						<img alt="Licencia de Creative Commons" src="https://i.creativecommons.org/l/by/2.5/80x15.png" />
+					</a>.
+				</p>
+			</div>
+			<div class="modal-footer">
+			  <a class=" modal-action modal-close waves-effect waves-green btn-flat" href="Javascript:void(0);" onclick="cerrarAcercaDe();">Aceptar</a>
+			</div>
+		</div>
 		<script src="$ThemeDir/js/equipo.js"></script>
 	<% end_if %>					
 </body>
